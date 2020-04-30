@@ -24,14 +24,14 @@ aside{
     display: flex;
     flex-direction: column;
 }
-aside .icon{
-   width: 70px;
-   height: 70px;
+aside > .logo > .icon{
+   width: 60px;
+   height: 60px;
 }
 aside > .logo{
     padding: 30px 0px 80px 0px;
     text-align: center;
-} 
+}
 aside > .option{
     display: flex;
     justify-content: center;
@@ -39,18 +39,52 @@ aside > .option{
     flex-direction: column;
 }
 aside > .option > .icon{
-    margin: 20px 0px;
+    width: 90px;
+    height: 90px; 
+    padding: 30px 0px;
 }
 aside > .uploadArea{
-    padding-top: 60px;
+    padding-top: 130px;
     text-align: center;
     flex: 1;
-    position:relative
+}
+aside > .uploadArea > .icon{
+    width: 60px;
+    height: 60px;
 }
 aside > .uploadArea > input{
+    cursor: pointer;
     position:absolute;
     opacity:0;
-    height: 70px;
-    top: 60px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
+}
+
+/* main */
+main{
+    margin-left: 10px;
+    font-family: KaiTi;
+    overflow: auto;
+}
+main > h2{
+    font-size: 24px;
+    font-family: KaiTi;
+    padding: 25px;
+    border-bottom: 1px solid #aaa;
+}
+main > ul >li{
+    font-size: 18px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+main > ul .row{
+    display: flex;
+    align-items: center;
+}
+main > ul .row > .icon{
+    width: 30px;
+    height: 30px;
+}
+main > ul > li > p{
+    margin-left: 30px
 }
