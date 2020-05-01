@@ -19,7 +19,6 @@
         },
         bindEvents(){
             let $avatarUpload = $('#avatar-upload')
-            //let avatarUpload = document.getElementById('avatar-upload')
             $avatarUpload.on('change',()=>{
                 let localFile = $avatarUpload[0].files[0]
                 let name = localFile.name
@@ -28,15 +27,20 @@
                     onprogress: (progress) => {
                         let uploadProgress = progress.percent
                         if(uploadProgress!==100){
+                            //window.eventHub.trigger('upload',{data:'上传中'})
                             upload.innerText = '上传中'
                         }
                     }
                 }).then((file) => {
+                    //window.eventHub.trigger('upload',{data:'上传完成'})
                     upload.innerText = '上传完成'
                 });
                 file.save().then((file) => {
-                    let url = file.attributes.url
-                    link.innerText = url
+                    window.eventHub.trigger('upload',{
+                        name:file.attributes.name,
+                        link:file.attributes.url
+                    })
+                    //link.innerText = url
                 })
             })
         }
