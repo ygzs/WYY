@@ -1,0 +1,90 @@
+*{margin: 0px;padding: 0px;box-sizing: border-box;}
+*::before{box-sizing: border-box;}
+*::after{box-sizing: border-box;}
+.icon {width: 1em; height: 1em;vertical-align: -0.15em;fill: currentColor;overflow: hidden;}
+ul,li{list-style: none;}
+a{color: inherit;text-decoration: none;}
+body{font-size: 14px;line-height: 1.5;}
+
+/* layout */
+.page{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.top{
+    height: 42%;
+    background-color: rgb(97, 98, 93);
+    color: white;
+}
+.bottom{
+    flex-grow: 1;
+}
+
+/* top */
+.top .icon{
+    width: 30px;
+    height: 30px;
+}
+.top > nav{
+    display: flex;
+    align-items: center;
+    padding: 15px 13px;
+}
+.top > nav > h2{
+    font-family: KaiTi;
+    font-size: 20px;
+    margin: 0px auto;
+}
+.top > .about{
+    display: flex;
+    padding: 20px 28px;
+}
+.top > .about > img{
+    border-radius: 10px;
+}
+.top > .about > .text{
+    margin-left: 28px;
+}
+.top > .about > .text > p{
+    padding: 0px 7px;
+    font-family: KaiTi;
+    font-size: 15px;
+} 
+.top > .option{
+    display: flex;
+    justify-content: center;
+    padding: 25px 28px;
+}
+.top > .option > svg{
+    flex: 1;
+}
+
+/* bottom */
+.bottom{
+    font-family: KaiTi;
+    overflow: auto;
+}
+.bottom > ul >li{
+    font-size: 18px;
+    padding: 7px 28px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bottom > ul .icon1{
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 50%;
+    padding: 5px;
+    background: rgb(31, 213, 156);
+}
+.bottom > ul .icon2{
+    width: 1.7em;
+    height: 1.7em;
+}
+.bottom > ul .right{
+    flex: 1;
+    margin-left: 27px;
+}
