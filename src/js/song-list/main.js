@@ -24,6 +24,11 @@
                 $(this.el).append(li)
             }) 
         },
+        active(dom){
+            let $li = $(dom)
+            $li.addClass('active')
+                .siblings('.active').removeClass('active')
+        },
     }
     let model = {
         data:[],
@@ -38,6 +43,7 @@
             this.model = model
             this.initLeanCloud()
             this.bianEvents()
+            this.clickEvents()
         },
         initLeanCloud(){
             AV.init({
@@ -59,6 +65,20 @@
                 this.view.render(this.model.data)
             })
         },
+        clickEvents(){
+            $(this.view.el).on('click','li',(e)=>{
+                this.view.active(e.currentTarget)
+            })
+            $(this.view.el).on('click','.icon2',(e)=>{
+                //let $svg = $(e.currentTarget)
+                $('#submenu').show()
+                setTimeout(()=>{
+                    $(document).one('click',()=>{
+                        $('#submenu').hide()
+                    })
+                },0)
+            })
+        }
     }
     controller.init(view,model)
 }
