@@ -18,9 +18,9 @@
                 let html = this.template
                 let placeholder = ['songName','singer']
                 placeholder.map((item)=>{
-                    html = html.replace(`**${item}**`,index[item])
+                    html = html.replace(`**${item}**`,index.attributes[item])
                 })
-                let li =  $(`<li></li>`).html(html)
+                let li =  $(`<li></li>`).html(html).attr('song-id',index['id'])
                 $(this.el).append(li)
             }) 
         },
@@ -57,7 +57,7 @@
             .then((songs)=>{
                 let data = [] 
                 songs.map((song)=>{
-                    data.push(song.attributes)
+                    data.push({id:song.id,attributes:song.attributes})
                 })
                 this.model.data = data
             })
@@ -70,13 +70,9 @@
                 this.view.active(e.currentTarget)
             })
             $(this.view.el).on('click','.icon2',(e)=>{
-                //let $svg = $(e.currentTarget)
-                $('#submenu').show()
-                setTimeout(()=>{
-                    $(document).one('click',()=>{
-                        $('#submenu').hide()
-                    })
-                },0)
+                let $svg = $(e.currentTarget)
+                let data = $svg.parent().attr('song-id')
+                window.eventHub.trigger('emerge',data)
             })
         }
     }
