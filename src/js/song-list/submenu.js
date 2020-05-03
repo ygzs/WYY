@@ -25,16 +25,15 @@
         }
     }
     let model = {
-        data:undefined,
+        data:[],
         editSong(data){
-            console.log(data)
-            const song = AV.Object.createWithoutData('Songs', this.data)
+            const song = AV.Object.createWithoutData('Songs', this.data[0])
             let placeholder = ['songName','singer']
             placeholder.map((item)=>{
                 song.set(item, data[item])
             })
-            song.save()
-        }
+            return song.save()
+        },
     }
     let controller = {
         init(view,model){
@@ -62,14 +61,20 @@
         submit(){
             this.view.$el.on('submit','#edit',(x)=>{
                 x.preventDefault()
+                $('#submenu').hide()
                 let needs = 'songName singer'.split(' ')
                 let data = {} 
                 needs.map((string)=>{ 
                     data[string] = this.view.$el.find(`[name="${string}"]`).val() 
                 }) 
                 this.model.editSong(data)
+                .then((newdata)=>{
+                    let object = JSON.parse(JSON.stringify(newdata))
+                    object.index = this.model.data[1]
+                    window.eventHub.trigger('update',object)
+                })
             })
-        }
+        },
     }
     controller.init(view,model)
 }

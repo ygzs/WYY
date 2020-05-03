@@ -70,11 +70,14 @@
                 this.view.active(e.currentTarget)
             })
             $(this.view.el).on('click','.icon2',(e)=>{
-                let $svg = $(e.currentTarget)
-                let data = $svg.parent().attr('song-id')
+                let $svg = $(e.currentTarget).parent()
+                let index = $svg.index()
+                let data = []
+                data[0] = $svg.attr('song-id')
+                data[1] = index
                 window.eventHub.trigger('emerge',data)
             })
-        }
+        }, 
     }
     controller.init(view,model)
 }
