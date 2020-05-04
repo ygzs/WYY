@@ -1,8 +1,16 @@
 {
     let view = {
         el:'aside>.uploadArea',
+        show(){
+            $('#loading').addClass('active')
+        },
+        hide(){
+            $('#loading').removeClass('active')
+        }
     }
-    let model = {}
+    let model = {
+        status:'open'
+    }
     let controller = {
         init(view,model){
             this.view = view
@@ -27,32 +35,26 @@
                     onprogress: (progress) => {
                         let uploadProgress = progress.percent
                         if(uploadProgress!==100){
-                            //window.eventHub.trigger('upload',{data:'上传中'})
                             upload.innerText = '上传中'
+                            this.view.show()
+                            //window.eventHub.trigger('upload',{data:'上传中'})
                         }
                     }
                 }).then((file) => {
                     //window.eventHub.trigger('upload',{data:'上传完成'})
                     upload.innerText = '上传完成'
+                    this.view.hide()
                 });
                 file.save().then((file) => {
                     window.eventHub.trigger('upload',{
                         name:file.attributes.name,
                         link:file.attributes.url
                     })
-                    //link.innerText = url
                 })
             })
         }
     }
 
-controller.init(view,model)
-
-//let TestObject = AV.Object.extend('TestObject')
-    //let testObject = new TestObject();
-    //testObject.set('words', 'Hello world!');
-    //testObject.save().then((testObject) => {
-    //console.log('保存成功。')
-//})
+    controller.init(view,model)
 
 }

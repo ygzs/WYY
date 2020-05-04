@@ -87,3 +87,17 @@ main > ul .row > .icon{
 main > ul > li > p{
     margin-left: 30px
 }
+
+/* loading */
+.loading{
+    visibility: hidden;
+    content: '';
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: 68px;
+    left: 37px;
+}
+.loading.active{
+    visibility: visible;    
+}
