@@ -5,7 +5,7 @@
 ul,li{list-style: none;}
 a{color: inherit;text-decoration: none;}
 html{font-size: 10vw;}
-body{font-size: 3.7vw; background-color: rgb(31, 213, 156);}
+body{font-size: 3.7vw;}
 @font-face {font-family: 'webfont';font-display: swap;
 	src: url('//at.alicdn.com/t/webfont_bhf0v3rjyhp.ttf') format('truetype'),
 	url('//at.alicdn.com/t/webfont_bhf0v3rjyhp.svg#杨任东竹石体-Bold') format('svg');}
@@ -14,6 +14,7 @@ body{font-size: 3.7vw; background-color: rgb(31, 213, 156);}
 
 /* topbar */
 .topbar{
+	background-color: rgb(31, 213, 156);
 	padding: 4.5vw 2.5vw; 
 	display: flex; 
 	align-items: center; 
@@ -38,9 +39,6 @@ body{font-size: 3.7vw; background-color: rgb(31, 213, 156);}
 }
 
 /* siteNav */
-.siteNav{
-	background-color: white;
-}
 .siteNav > ol{
 	display: flex; 
 	text-align: center; 
@@ -72,7 +70,6 @@ body{font-size: 3.7vw; background-color: rgb(31, 213, 156);}
 .tabContent{
 	border-bottom-left-radius: 5vw;
 	border-bottom-right-radius: 5vw; 
-	background-color: white;
 	margin-bottom: 13vh;
 }
 .tabContent > li {
