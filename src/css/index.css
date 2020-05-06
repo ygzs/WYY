@@ -46,6 +46,7 @@ body{font-size: 3.7vw;}
 	font-size: 1.1em; 
 }
 .siteNav > ol> li{
+	cursor: pointer;
 	flex: 1; 
 }
 .siteNav > ol> li.active{
@@ -173,4 +174,27 @@ section>h2:first-child{
 }
 .option li p{
 	font-size: 2vw;
+}
+
+/* third-page */
+.profile .usercard{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 4vw 0vw;
+}
+.profile .usercard .text{
+	font-family: Kaiti;
+}
+.main .songList nav{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 4vw 4vw;
+}
+.main .songList li a{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 4vw 4vw;
 }
