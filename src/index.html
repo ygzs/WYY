@@ -19,8 +19,8 @@
     <nav class="siteNav">
         <ol class="tabItems">
             <li class="active"  data-page-name="first-page"><span>音乐馆</span></li>
-            <li data-page-name="second-page"><span>推荐音乐</span></li>
-            <li data-page-name="third-page"><span>搜索</span></li>
+            <li data-page-name="second-page"><span>音乐&动态</span></li>
+            <li data-page-name="third-page"><span>我的</span></li>
         </ol>
     </nav>
     <ol class="tabContent">
@@ -94,49 +94,54 @@
           </section>
           <section class="introduction">
             <p>
-                放一些轻音乐，煮上一杯咖啡，尽量让自己放松下来，闭上眼睛，微笑，心里从一数到一百，再看书应该就能静下来了吧。
-              </p>
+              放一些轻音乐，煮上一杯咖啡，尽量让自己放松下来，闭上眼睛，微笑，心里从一数到一百，再看书应该就能静下来了吧。
+            </p>
           </section>
         </li>
         <li class="second-page">
-            <section class="option">
-                <ul>
-                    <li>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-maikefeng"></use>
-                        </svg>
-                        <p>歌手</p>
-                    </li>
-                    <li>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-ranking"></use>
-                        </svg>
-                        <p>排行</p>
-                    </li>
-                    <li>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-category"></use>
-                        </svg>
-                        <p>分类</p>
-                    </li>
-                    <li>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-podcast-solid"></use>
-                        </svg>
-                        <p>电台</p>
-                    </li>
-                    <li>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-video"></use>
-                        </svg>
-                        <p>视频</p>
-                    </li>
-                </ul>    
-            </section>
+          <section class="option">
+            <ul>
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-maikefeng"></use>
+                </svg>
+                <p>歌手</p>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-ranking"></use>
+                </svg>
+                <p>排行</p>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-category"></use>
+                </svg>
+                <p>分类</p>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-podcast-solid"></use>
+                </svg>
+                <p>电台</p>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-video"></use>
+                </svg>
+                <p>视频</p>
+              </li>
+            </ul> 
+          </section>
+          <section class="search">
+            <input id="searchSong" type="text" style="border: 1px solid red;">
+            <div id="output"></div>
+          </section>
         </li>
         <li class="third-page">
-          <input id="searchSong" type="text" style="border: 1px solid red;">
-          <div id="output"></div>
+          <section class="profile">
+            <img src="./img/song-list.jpg" alt="">
+          </section>
         </li>
     </ol>
     <footer class="player">

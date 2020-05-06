@@ -153,3 +153,24 @@ section>h2:first-child{
 	align-items: center;
 	justify-content: center;
 }
+
+/* second-page */
+.second-page .option ul{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 4vw 0vw;
+}
+.second-page .option ul li{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.option li .icon{
+	width: 7vw;
+	height: 7vw;
+}
+.option li p{
+	font-size: 2vw;
+}
