@@ -14,17 +14,24 @@
             this.bindEvents()
         },
         bindEvents(){
-            this.view.$el.on('click',()=>{
-                console.log(111111);
+            this.view.$el.on('click',(e)=>{
+                e.preventDefault()
+                history.pushState({},null,'index.html')
                 $.get('/src/index')
                     .then((result)=>{
                         $('#page').html(result)
+                        history.pushState(result,null,'index.html')
                         $('#page').find(`li[data-page-name="third-page"]`).addClass('active')
-                        $('#backContent').addClass('active')
+                        $('#page').find(`li[data-page-name="first-page"]`).removeClass('active')
+                        $('.third-page').addClass('active')
+                        $('.first-page').removeClass('active')
+                    }).then(()=>{
+                        $('.tabItems').on('click','li',()=>{
+                            window.location.href = '/src/index.html'
+                        })
                     })
-                
             })
-        }
+        },
     }
     controller.init(view,model)
 }
