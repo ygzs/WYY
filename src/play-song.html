@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/play-song.css">
+    <script src="https://at.alicdn.com/t/font_1792284_q0veul708d.js"></script>
+    <title>播放音乐</title>
+</head>
+<body>
+    <div class="page" id="app">
+        <nav>
+            <a href="#" id="back">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-jiantou-xia"></use>
+                </svg>
+            </a>
+            <p>歌曲</p>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-fenxiang"></use>
+            </svg>
+        </nav>
+        <div class="song-picture">
+            <img src="./img/song (1).jpg">
+        </div>
+        <div class="song-lyric">
+            <ol>
+                <li>小餐枱沙发雪柜及两份红茶</li>
+                <li>温馨的光境不过借出到期拿回吗</li>
+                <li>等不到下一代</li>
+                <li>是吗</li>
+            </ol>
+        </div>
+        <div class="song-message">
+            <div>
+                <p class="songName">喜帖街</p>
+                <p class="singer">谢安琪</p>
+            </div>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-love"></use>
+            </svg>
+        </div>
+        <div class="option">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-xingxing1"></use>
+            </svg>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-xiazai1"></use>
+            </svg>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-liuyan"></use>
+            </svg>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-caidan"></use>
+            </svg>
+        </div>
+        <div class="play">
+            <audio src="#"></audio>
+            <svg class="tagged-icon-1" aria-hidden="true">
+                <use xlink:href="#icon-bofang"></use>
+            </svg>
+        </div>
+    </div>
+
+    <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./js/event-hub.js"></script>
+    <script src="./js/play-song/main.js"></script>
+</body>
+</html>

@@ -65,7 +65,7 @@ body{font-size: 14px;line-height: 1.5;}
     font-family: KaiTi;
     overflow: auto;
 }
-.bottom > ul >li{
+.bottom > ul >li a{
     font-size: 18px;
     padding: 7px 28px;
     border-bottom: 1px solid #ddd;
@@ -94,7 +94,6 @@ body{font-size: 14px;line-height: 1.5;}
     text-align: center;
     background-color: rgb(227, 227, 227);
     border-radius: 5px;
-    border: 1px solid red;
     position: absolute;
     bottom: 0px;
 }

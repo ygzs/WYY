@@ -2,6 +2,7 @@
     let view = {
         el:'.page>.bottom>ul',
         template:`
+            <a href="./play-song.html?id=**songId**">
             <svg class="icon1" aria-hidden="true">
                 <use xlink:href="#icon-tubiaozhizuomoban"></use>
             </svg>
@@ -12,6 +13,7 @@
             <svg class="icon2" aria-hidden="true">
                 <use xlink:href="#icon-caidan"></use>
             </svg>
+            </a>
         `,
         render(data){
             data.map((index)=>{
@@ -19,6 +21,7 @@
                 let placeholder = ['songName','singer']
                 placeholder.map((item)=>{
                     html = html.replace(`**${item}**`,index.attributes[item])
+                    html = html.replace(`**songId**`,index.id)
                 })
                 let li =  $(`<li></li>`).html(html).attr('song-id',index['id'])
                 $(this.el).append(li)
@@ -70,7 +73,8 @@
                 this.view.active(e.currentTarget)
             })
             $(this.view.el).on('click','.icon2',(e)=>{
-                let $svg = $(e.currentTarget).parent()
+                e.preventDefault()
+                let $svg = $(e.currentTarget).parent().parent()
                 let index = $svg.index()
                 let data = []
                 data[0] = $svg.attr('song-id')

@@ -8,9 +8,7 @@
             $('#loading').removeClass('active')
         }
     }
-    let model = {
-        status:'open'
-    }
+    let model = {}
     let controller = {
         init(view,model){
             this.view = view

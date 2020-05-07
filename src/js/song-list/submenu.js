@@ -16,6 +16,10 @@
                     <input name="singer" type="text">
                 </div>
                 <div class="row">
+                    <label>封面</label>
+                    <input name="cover" type="text">
+                 </div>
+                <div class="row">
                     <input type="submit">
                 </div>
             </form>
@@ -28,7 +32,7 @@
         data:[],
         editSong(data){
             const song = AV.Object.createWithoutData('Songs', this.data[0])
-            let placeholder = ['songName','singer']
+            let placeholder = ['songName','singer','cover']
             placeholder.map((item)=>{
                 song.set(item, data[item])
             })
@@ -62,7 +66,7 @@
             this.view.$el.on('submit','#edit',(x)=>{
                 x.preventDefault()
                 $('#submenu').hide()
-                let needs = 'songName singer'.split(' ')
+                let needs = 'songName singer cover'.split(' ')
                 let data = {} 
                 needs.map((string)=>{ 
                     data[string] = this.view.$el.find(`[name="${string}"]`).val() 
