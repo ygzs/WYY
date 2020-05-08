@@ -7,7 +7,10 @@
       render(data){
         let {song} = data
         //this.$el.css('background', `url(${song.cover})`)
+        this.$el.find('.song-picture>img').attr('src',song.cover)
         this.$el.find('audio').attr('src',song.link)
+        this.$el.find('.songName').text(song.songName)
+        this.$el.find('.singer').text(song.singer)
       },
       play(){
         this.$el.find('audio')[0].play()

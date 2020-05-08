@@ -27,7 +27,7 @@
     });
         
     /** 播放结束 **/
-    audio.addEventListener('ended',endAudio,false);   
+    //audio.addEventListener('ended',endAudio,false);   
         
     //转换音频时长显示
     function transTime(time) {

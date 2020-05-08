@@ -48,21 +48,23 @@ nav p{
 
 /* song-picture */
 .song-picture{
-    padding: 2vw 0;
+    padding: 2.5vw 0;
     width: 80vw;
+    height: 66.5vw;
     margin: 0 auto;
 }
 .song-picture img{
-    height: auto; 
-	width: auto\9; 
-    width:100%;
-    border-radius: 5vw;
+    height: 100%; 
+    width: 100%;
+    display: block;
+    border-radius: 4vw;
 }
 
 /* .song-lyric */
 .song-lyric{
     text-align: center;
     font-family: Kaiti;
+    padding-top: 3vw;
 }
 .song-lyric ol>li{
     font-size: 4.5vw;
