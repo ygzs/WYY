@@ -1,7 +1,7 @@
 *{margin: 0px;padding: 0px;box-sizing: border-box;}
 *::before{box-sizing: border-box;}
 *::after{box-sizing: border-box;}
-.icon {width: 1em; height: 1em;vertical-align: -0.15em;fill: white;overflow: hidden;}
+.icon {cursor: pointer;width: 1em; height: 1em;vertical-align: -0.15em;fill: currentColor;overflow: hidden;}
 ul,li{list-style: none;}
 a{color: inherit;text-decoration: none;}
 html{font-size: 10vw;}
@@ -9,20 +9,23 @@ body{font-size: 3.7vw;color: white;}
 
 /* page */
 .page{
+    height: 100%;
+    width: 100%;
     position: relative;
-    background: transparent url(../img/bgp\ \(1\).jpg);
-    background-size: cover;
-    z-index: -2;
 }
 .page::after{
     content: '';
     position: absolute;
-    top: 0;left: 0;
-    width: 100%;height: 100%;
-    background: inherit;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent url(../img/bgp\ \(1\).jpg) no-repeat center center;
     filter: blur(5px);
     z-index: -1;
+    background-size: cover;
 }
+
 /* nav */
 nav{
     display: flex;
@@ -94,6 +97,7 @@ nav p{
 .option .icon{
     width: 7vw;
     height: 7vw;
+    fill: rgba(255, 255, 255,0.4);
 }
 
 /* play */
@@ -101,10 +105,54 @@ nav p{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 7vw;
+    flex-direction: column;
+    padding: 3vw 4vw;
 }
 .play svg{
-    width: 20vw;
-    height: 20vw;
-    fill: white;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    background-color: inherit;
+    border: 1px solid white;
+    cursor: pointer;
+}
+.play .key .tagged-icon-2{
+    display: none;
+}
+.play .key.active .tagged-icon-2{
+    display: block;
+}
+.play .key.active .tagged-icon-1{
+    display: none;
+}
+.play .key{
+    padding: 3vw;
+}
+.article_audio {
+	display: none;
+}
+.audio_box {
+    width: 100%;
+}
+.pgs{
+    position: relative;
+	width: 100%;
+	height: 0.5vw;
+ 	background-color: rgba(255, 255, 255,0.2)
+}
+.pgs-play{
+	width: 0%; 
+	height: 100%;
+	background-color: white;
+}
+.time_p{	
+	font-size: 3vw;
+    color: rgb(143,143,143);
+    padding-top: 1vw;
+}
+.playedTime{
+	float: left;
+}
+.totalTime{
+	float: right;
 }

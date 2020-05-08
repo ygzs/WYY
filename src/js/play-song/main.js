@@ -6,11 +6,14 @@
       },
       render(data){
         let {song} = data
-        this.$el.css('background', `url(${song.cover})`)
+        //this.$el.css('background', `url(${song.cover})`)
         this.$el.find('audio').attr('src',song.link)
       },
       play(){
         this.$el.find('audio')[0].play()
+      },
+      pause(){
+        this.$el.find('audio')[0].pause()
       }
     }
     let model = {
@@ -51,14 +54,6 @@
             serverURL: "https://wgmhscdb.lc-cn-n1-shared.com"
         })
       },
-      bindEvents(){
-        console.log(22);
-        this.view.$el.on('click','.tagged-icon-1',()=>{
-          console.log(1);
-          
-          this.view.play()
-        })
-      },
       getSongId(){
         let search = window.location.search
         if(search.indexOf('?') === 0){
@@ -76,7 +71,17 @@
           }
         }
         return id
-      }
+      },
+      bindEvents(){
+        this.view.$el.on('click','.tagged-icon-1',()=>{
+          $('.key').addClass('active')
+          this.view.play()
+        })
+        this.view.$el.on('click','.tagged-icon-2',()=>{
+          $('.key').removeClass('active')
+          this.view.pause()
+        })
+      },
     }
     controller.init(view, model)
   }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/play-song.css">
-    <script src="https://at.alicdn.com/t/font_1792284_q0veul708d.js"></script>
+    <script src="https://at.alicdn.com/t/font_1792284_3sujlr5g7o5.js"></script>
     <title>播放音乐</title>
 </head>
 <body>
@@ -55,10 +55,25 @@
             </svg>
         </div>
         <div class="play">
-            <audio src="#"></audio>
-            <svg class="tagged-icon-1" aria-hidden="true">
-                <use xlink:href="#icon-bofang"></use>
-            </svg>
+            <audio id="article_audio" class='article_audio' controls src="#">
+            </audio>
+            <div class="audio_box">
+                <div id="pgs" class="pgs">
+                    <div id="progress" class="pgs-play"></div>
+                </div>
+                <div class="time_p clearfix">
+                    <span id="playedTime" class="playedTime">00:00</span>
+                    <span id="totalTime" class="totalTime">00:00</span>
+                </div>
+            </div>
+            <div class="key">
+                <svg class="tagged-icon-1" aria-hidden="true">
+                    <use xlink:href="#icon-bofang1"></use>
+                </svg>
+                <svg class="tagged-icon-2" aria-hidden="true">
+                    <use xlink:href="#icon-zanting1"></use>
+                </svg>
+            </div>
         </div>
     </div>
 
@@ -66,5 +81,6 @@
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./js/event-hub.js"></script>
     <script src="./js/play-song/main.js"></script>
+    <script src="./js/play-song/audio.js"></script>
 </body>
 </html>
