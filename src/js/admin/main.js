@@ -1,6 +1,6 @@
 {
     let view = {
-        el:'main>ul',
+        el:'.bottom>ul',
         template:`
         <li>
             <div class="row">
@@ -32,29 +32,10 @@
             this.bindEvents()
         },
         bindEvents:function(){
-            window.eventHub.on('upload',(data)=>{
-                let {name,link} = data
-                let singerSongType = name.split('.')
-                let singerSong = singerSongType[0]
-                let singerAndSong = singerSong.split('-')
-                data = {songName:singerAndSong[1],
-                        singer:singerAndSong[0],
-                        link:link}
+            window.eventHub.on('apply',(data)=>{
                 this.model.data = data 
-                this.view.render(data)
-                let string = JSON.stringify(this.model.data)
-                let object = JSON.parse(string)
-                this.savemessage(object)
+                this.view.render(this.model.data)
             })
-        },
-        savemessage:function(object){
-            let {songName,singer,link} = object
-            const Song = AV.Object.extend('Songs')
-            const song = new Song()
-            song.set('songName', songName)
-            song.set('singer', singer)
-            song.set('link', link)
-            song.save()
         },
     }
     controller.init(view,model)

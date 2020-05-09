@@ -16,6 +16,13 @@ body{font-size: 14px;line-height: 1.5;}
 }
 .page > main{
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.page > main .bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* aside */
@@ -27,6 +34,7 @@ aside{
 aside > .logo > .icon{
    width: 60px;
    height: 60px;
+   fill: rgb(31, 213, 156);
 }
 aside > .logo{
     padding: 30px 0px 80px 0px;
@@ -61,31 +69,63 @@ aside > .uploadArea > input{
 }
 
 /* main */
-main{
-    font-family: KaiTi;
-    overflow: auto;
-}
 main > h2{
     font-size: 28px;
     font-family: KaiTi;
-    padding: 45px 35px;
+    padding: 10px 35px;
     border-bottom: 2px solid #aaa;
 }
-main > ul >li{
+
+/* bottom ul */
+main .bottom ul{
+    font-family: KaiTi;
+    height: 45vh;
+    overflow-y: auto;
+}
+main .bottom ul >li{
     font-size: 18px;
     padding: 10px 20px;
     border-bottom: 1px solid #ddd;
 }
-main > ul .row{
+main .bottom ul .row{
     display: flex;
     align-items: center;
 }
-main > ul .row > .icon{
+main ul .row > .icon{
     width: 30px;
     height: 30px;
 }
-main > ul > li > p{
+main ul > li > p{
     margin-left: 30px
+}
+
+/* submenu */
+main .bottom .submenu{
+    padding: 10px;
+    text-align: center;
+    flex: 1;
+}
+.bottom .submenu > p{
+    padding-top: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.bottom .edit > .row{
+    padding: 8px 0px;
+}
+.bottom .edit input[type=text]{
+    height: 23px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+.bottom .edit input[type=submit]{
+    border: 1px solid rgb(31, 213, 156);
+    margin-left: -78px;
+    height: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    background-color: rgb(31, 213, 156);
 }
 
 /* loading */
