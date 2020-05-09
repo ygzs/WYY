@@ -65,10 +65,14 @@ nav p{
     text-align: center;
     font-family: Kaiti;
     padding-top: 3vw;
+    height: 30vw;
+    border: 1px solid red;
+    overflow: hidden;
 }
-.song-lyric ol>li{
+.song-lyric ol>p{
     font-size: 4.5vw;
     line-height: 1.5;
+    color: rgba(255, 255, 255,0.5);
 }
 
 /* song-message */

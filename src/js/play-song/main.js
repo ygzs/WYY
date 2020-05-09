@@ -11,6 +11,28 @@
         this.$el.find('audio').attr('src',song.link)
         this.$el.find('.songName').text(song.songName)
         this.$el.find('.singer').text(song.singer)
+        /* lyric */
+        let {lyric} = song
+        let array = lyric.split('\n').map((string)=>{
+          let p = $(`<p></p>`)
+          let regex = /\[([\d:.]+)\](.+)/
+          let matches =string.match(regex)
+          if(matches){
+            p.text(matches[2])
+            let time = matches[1]
+            let parts = time.split(':')
+            let minutes = parts[0]
+            let seconds = parts[1]
+            let newTime = parseInt(minutes,10) * 60 + parseFloat(seconds,10)
+            p.attr('data-time', newTime)
+          }else{
+            p.text('')
+          }
+          this.$el.find('.song-lyric>ol').append(p )
+        })
+      },
+      showlyric(){
+        
       },
       play(){
         this.$el.find('audio')[0].play()
@@ -79,6 +101,7 @@
         this.view.$el.on('click','.tagged-icon-1',()=>{
           $('.key').addClass('active')
           this.view.play()
+          this.view.showlyric()
         })
         this.view.$el.on('click','.tagged-icon-2',()=>{
           $('.key').removeClass('active')
