@@ -8,7 +8,11 @@
     });
           
     /** 播放进度 **/
-    audio.addEventListener('timeupdate',updateProgress,false);
+    audio.addEventListener('timeupdate',updateProgress,false)
+    audio.addEventListener('timeupdate',()=>{
+        showlyric(audio.currentTime)
+    })
+
         
     /** 更新进度条 **/
     function updateProgress() {
@@ -24,10 +28,38 @@
         $("#circle").css({"left":(endX-startX-1)+"px"});
         audio.currentTime = rate*audio.duration;
         updateProgress();
-    });
+    })
+
+    function showlyric(time){
+        let allp = $('.song-lyric>ol').find('p')
+        let p
+        for (let i = 0; i < allp.length; i++) {
+            if(i === allp.length-1){
+                p = allp[i]
+                break
+            }else{
+                let currentTime = allp.eq(i).attr('data-time')
+                let nextTime = allp.eq(i+1).attr('data-time')
+                if(currentTime<=time && time<=nextTime){
+                    p = allp[i]
+                    break
+                }
+            }
+        }
+        let pheight = p.getBoundingClientRect().top
+        let olheight = $('.song-lyric').find('ol')[0].getBoundingClientRect().top
+        let height = pheight - olheight
+        $('.song-lyric>ol').css('transform',`translateY(${-(height-28)}px)`)
+        $(p).addClass('active')
+            .siblings('.active').removeClass('active')
+        
+    }
         
     /** 播放结束 **/
-    //audio.addEventListener('ended',endAudio,false);   
+    audio.addEventListener('ended',endAudio,false)
+    function endAudio(){
+        $('.key').removeClass('active')
+    }
         
     //转换音频时长显示
     function transTime(time) {
