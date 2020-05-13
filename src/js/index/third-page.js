@@ -4,6 +4,22 @@
         init(){
             this.$el = $(this.el)
         },
+        template:`
+            <a href="./song-list.html">
+                <img src="**picture**" alt="">
+                <p>**title**</p>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-arrow-right-copy-copy"></use>
+                </svg>
+            </a>
+        `,
+        render(data){    
+            let html = this.template
+            html = html.replace(`**picture**`,data.attributes.Data.picture)
+            html = html.replace(`**title**`,data.attributes.Data.title)
+            let li =  $(`<li></li>`).html(html)
+            this.$el.find('.songList>ol').append(li)
+        },
         show(){
             this.$el.addClass('active')
         },
@@ -11,13 +27,24 @@
             this.$el.removeClass('active')
         }
     }
-    let model = {}
+    let model = {
+        data:{},
+        fetch(){
+            const query = new AV.Query('SongList');
+            return query.find()
+        },
+    }
     let controller = {
         init(view,model){
             this.view = view
             this.model = model
             this.view.init()
+            this.model.fetch().then((data)=>{
+                this.model.data = data[0]
+                this.view.render(this.model.data)  
+            })
             this.bindEvents()
+            this.makeSongList()
         },
         bindEvents(){
             window.eventHub.on('selectTab',(tabName)=>{
@@ -27,7 +54,46 @@
                     this.view.hide()
                 }
             })
-        }
+        },
+        makeSongList(){
+            this.view.$el.on('click','.main nav>.icon',()=>{
+                $('#submenu').addClass('active')
+                setTimeout(()=>{
+                    $(document).one('click',()=>{
+                        $('#submenu').removeClass('active')
+                    })
+                },0)
+                $('#submenu').on('click',(x)=>{
+                    x.stopPropagation()
+                })
+            })
+            let data = {}
+            let $avatarUpload = $('#avatar-upload')
+                $avatarUpload.on('change',()=>{
+                    let localFile = $avatarUpload[0].files[0]
+                    var reader = new FileReader()
+                    reader.readAsDataURL(localFile)
+                    reader.onload = function(){
+                        $('.avatar-img').attr("src",this.result)
+                        data.picture = this.result
+                    }
+                })
+            let $form = this.view.$el.find('.edit')
+            $form.on('submit',(e)=>{
+                e.preventDefault()
+                let needs = 'title introduction'.split(' ')
+                needs.map((string)=>{ 
+                    data[string] = $form.find(`[name="${string}"]`).val()
+                })
+                let SongList = AV.Object.extend('SongList')
+                const songlist = new SongList()
+                songlist.set('Data',data)
+                songlist.save().then((data)=>{
+                    this.view.render(data)
+                    $('#submenu').removeClass('active')
+                })
+            })
+        },
     }
     controller.init(view,model)
 }

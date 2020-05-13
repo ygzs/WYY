@@ -11,7 +11,15 @@
             this.view = view
             this.model = model
             this.view.init()
+            this.initLeanCloud()
             this.bindEvents()
+        },
+        initLeanCloud(){
+            AV.init({
+                appId: "wGmHSCdbizmo4o5EVXcKSaHn-gzGzoHsz",
+                appKey: "4SskzGc8tqaDVp3Qe0s8EKND",
+                serverURL: "https://wgmhscdb.lc-cn-n1-shared.com"
+            })
         },
         bindEvents(){
             this.view.$el.on('click','.tabItems>li',(e)=>{

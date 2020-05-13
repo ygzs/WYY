@@ -5,7 +5,7 @@
 ul,li{list-style: none;}
 a{color: inherit;text-decoration: none;}
 html{font-size: 10vw;}
-body{font-size: 3.7vw;}
+body{font-size: 3.7vw;background-color: rgb(243, 243, 243);}
 @font-face {font-family: 'webfont';font-display: swap;
 	src: url('//at.alicdn.com/t/webfont_bhf0v3rjyhp.ttf') format('truetype'),
 	url('//at.alicdn.com/t/webfont_bhf0v3rjyhp.svg#杨任东竹石体-Bold') format('svg');}
@@ -181,7 +181,14 @@ section>h2:first-child{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	margin: 4vw 6vw;
 	padding: 4vw 0vw;
+	background-color: white;
+}
+.profile .usercard img{
+	width: 20vw;
+	height: 20vw;
+	border-radius: 3vw;
 }
 .profile .usercard .text{
 	font-family: Kaiti;
@@ -192,9 +199,60 @@ section>h2:first-child{
 	align-items: center;
 	padding: 4vw 4vw;
 }
+.songList .submenu.active{
+	visibility: visible;
+}
+.songList .submenu{
+	visibility: hidden;
+    width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    background-color: whitesmoke;
+    border-radius: 2vw;
+    position: absolute;
+	bottom: 15vh;
+	left: 0;
+	border: 1px solid #aaa;
+}
+.songList .submenu > p{
+    padding: 10px 0px;
+}
+.songList .edit{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+.songList .edit > .row{
+    padding: 8px 0px;
+}
+.songList .edit > .row>label{
+	width: 2em;
+}
+.songList .edit input[type=text]{
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+.songList .edit img{
+	width: 5vw;
+	height: 5vw;
+}
+.songList .edit input[type=submit]{
+    border: 1px solid gray;
+    margin-left: calc(2.5em);
+    height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
 .main .songList li a{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 4vw 4vw;
+}
+.songList li a img{
+	width: 15vw;
+	border-radius: 2vw;
 }

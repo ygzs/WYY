@@ -157,16 +157,31 @@
                 <svg class="icon" aria-hidden="true">
                   <use xlink:href="#icon-tianjia"></use>
                 </svg>
+                <div class="submenu" id="submenu">
+                  <p>新建歌单</p>
+                  <form class="edit" enctype="multipart/form-data">
+                    <div class="row">
+                      <label>标题</label>
+                      <input type="text" name="title">
+                    </div>
+                    <div class="row">
+                      <label>封面</label>
+                      <input type="file" name="picture" id="avatar-upload">
+                      <img src="#" class="avatar-img" alt="">
+                    </div>
+                    <div class="row">
+                      <label>介绍</label>
+                      <input type="text" name="introduction">
+                    </div>
+                    <div class="row">
+                      <input type="submit">
+                    </div>
+                  </form>
+                </div>
               </nav>
               <ol>
                 <li>
-                  <a href="./song-list.html">
-                    <img src="./img/song-list.jpg" alt="">
-                    <p>mine</p>
-                    <svg class="icon" aria-hidden="true">
-                      <use xlink:href="#icon-arrow-right-copy-copy"></use>
-                    </svg>
-                  </a>
+                  
                 </li>
               </ol>
             </div>
@@ -186,5 +201,6 @@
     <script src="./js/index/first-page.js"></script>
     <script src="./js/index/second-page.js"></script>
     <script src="./js/index/third-page.js"></script>
+
 </body>
 </html>
