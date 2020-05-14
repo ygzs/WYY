@@ -23,6 +23,7 @@
             window.eventHub.on('selectTab',(tabName)=>{
                 if(tabName === 'first-page'){
                     this.view.show()
+                    location.reload()
                 }else{
                     this.view.hide()
                 }
