@@ -16,7 +16,8 @@
         bindEvents(){
             this.view.$el.on('click',(e)=>{
                 e.preventDefault()
-                history.pushState({},null,'index.html')
+                history.back()
+                /*history.pushState({},null,'index.html')
                 $.get('/src/index')
                     .then((result)=>{
                         $('#page').html(result)
@@ -29,7 +30,7 @@
                         $('.tabItems').on('click','li',()=>{
                             window.location.href = '/src/index.html'
                         })
-                    })
+                    })*/
             })
         },
     }

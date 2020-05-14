@@ -45,6 +45,7 @@
             })
             this.bindEvents()
             this.makeSongList()
+            this.jumpBack()
         },
         bindEvents(){
             window.eventHub.on('selectTab',(tabName)=>{
@@ -94,6 +95,11 @@
                 })
             })
         },
+        jumpBack(){
+            this.view.$el.on('click','.songList li>a',()=>{
+                localStorage.setItem('display','0')
+            })
+        }
     }
     controller.init(view,model)
 }

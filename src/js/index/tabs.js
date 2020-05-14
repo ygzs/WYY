@@ -11,6 +11,7 @@
             this.view = view
             this.model = model
             this.view.init()
+            this.back()
             this.initLeanCloud()
             this.bindEvents()
         },
@@ -20,6 +21,19 @@
                 appKey: "4SskzGc8tqaDVp3Qe0s8EKND",
                 serverURL: "https://wgmhscdb.lc-cn-n1-shared.com"
             })
+        },
+        back(){
+            let display = localStorage.getItem('display')
+            if(display === '0'){
+                $('.siteNav').find(`li[data-page-name="third-page"]`).addClass('active')
+                $('.siteNav').find(`li[data-page-name="first-page"]`).removeClass('active')
+                $('.third-page').addClass('active')
+                $('.first-page').removeClass('active')
+                localStorage.clear()
+            }else{
+                $('.siteNav').find(`li[data-page-name="first-page"]`).addClass('active')
+                $('.first-page').addClass('active')
+            }
         },
         bindEvents(){
             this.view.$el.on('click','.tabItems>li',(e)=>{
