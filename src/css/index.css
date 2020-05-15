@@ -175,6 +175,23 @@ section>h2:first-child{
 .option li p{
 	font-size: 2vw;
 }
+.allsongs{
+	padding: 20vw 5vw;
+}
+.allsongs ul{
+	border-top: 1px solid #aaa;
+}
+.allsongs ul>li{
+	display: flex;
+	justify-content: space-around;
+	padding: 4vw 0vw;
+	border-bottom: 1px solid #aaa;
+}
+.allsongs ul>li .icon1,
+.allsongs ul>li .icon2{
+	width: 8vw;
+	height: 8vw;
+}
 
 /* third-page */
 .profile .usercard{

@@ -13,12 +13,16 @@
                 </svg>
             </a>
         `,
-        render(data){    
-            let html = this.template
-            html = html.replace(`**picture**`,data.attributes.Data.picture)
-            html = html.replace(`**title**`,data.attributes.Data.title)
-            let li =  $(`<li></li>`).html(html)
-            this.$el.find('.songList>ol').append(li)
+        render(data){
+            data.map((index)=>{
+                let html = this.template
+                let placeholder = ['picture','title']
+                placeholder.map((item)=>{
+                    html = html.replace(`**${item}**`,index.attributes.Data[item])
+                })
+                let li =  $(`<li></li>`).html(html)
+                this.$el.find('.songList>ol').append(li)
+            })
         },
         show(){
             this.$el.addClass('active')
@@ -40,7 +44,7 @@
             this.model = model
             this.view.init()
             this.model.fetch().then((data)=>{
-                this.model.data = data[0]
+                this.model.data = data
                 this.view.render(this.model.data)  
             })
             this.bindEvents()
