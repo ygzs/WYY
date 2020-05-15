@@ -5,7 +5,7 @@
             this.$el = $(this.el)
         },
         template:`
-            <a href="./song-list.html">
+            <a href="./song-list.html?id=**listId**">
                 <img src="**picture**" alt="">
                 <p>**title**</p>
                 <svg class="icon" aria-hidden="true">
@@ -19,6 +19,7 @@
                 let placeholder = ['picture','title']
                 placeholder.map((item)=>{
                     html = html.replace(`**${item}**`,index.attributes.Data[item])
+                    html = html.replace(`**listId**`,index.id)
                 })
                 let li =  $(`<li></li>`).html(html)
                 this.$el.find('.songList>ol').append(li)

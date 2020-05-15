@@ -78,8 +78,10 @@
                 let query = new AV.Query('Songs')
                 query.get(selectedSongId).then((song)=>{
                     song.set('parent','5ebd17eff6b47f0006108394')
+                    song.save()
                     console.log(song);
-                    
+                }).then(()=>{
+                    alert('添加成功')
                 })
             })
         },

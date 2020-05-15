@@ -180,17 +180,25 @@ section>h2:first-child{
 }
 .allsongs ul{
 	border-top: 1px solid #aaa;
+	padding-top: 1vh;
 }
 .allsongs ul>li{
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 	padding: 4vw 0vw;
 	border-bottom: 1px solid #aaa;
+	position: relative;
+	border-radius: 20vw;
+}
+.allsongs ul>li .right{
+	transform: translateX(-10vw);
 }
 .allsongs ul>li .icon1,
 .allsongs ul>li .icon2{
 	width: 8vw;
 	height: 8vw;
+	cursor: pointer;
 }
 
 /* third-page */
